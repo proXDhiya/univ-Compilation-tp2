@@ -3,7 +3,7 @@ valid_name              ([a-zA-Z]|"_"|"$"){1}("_"|[a-zA-Z0-9])*[a-zA-z]
 operators               [\.|=|+|-|*|/]+
 string                  ['|"](.*)['|"]
 comment                 [/]{2}(.*)
-var                     (const|var|lat)[[:space:]]{valid_name}
+var                     (const|var|let)[[:space:]]{valid_name}
 key_words               (await|break|case|catch|class|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|if|implements|import|in|instanceof|interface|new|null|package|private|protected|public|return|super|switch|static|this|throw|try|true|typeof|void|while|with|wield)
 open_state              [(|{]
 close_state             [)|}]
