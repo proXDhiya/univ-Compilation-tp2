@@ -1,8 +1,12 @@
-
+prefix          [(+)|(-)]{2}(.*)[ \t\n]
+postfix         [a-zA-Z0-9]*[(+)|(-)]{2}
 
 %%
 
-
+[[:space:]]     ;
+{postfix}       printf("Postfix --> %s\n", yytext);
+{prefix}        printf("Prefix  --> %s\n", yytext);
+.               ;
 
 %%
 
