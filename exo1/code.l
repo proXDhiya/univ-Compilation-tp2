@@ -1,11 +1,13 @@
 %%
 
-[[:space:]]                         ;
-^[/]{2}(.*)                         printf("comment \t--> %s\n", yytext);
-[(\.)|(=)|(+)|(-)|(*)|(/)]          printf("operator\t--> %s\n", yytext);
-['|"](.*)['|"]                      printf("string  \t--> %s\n", yytext);
-([a-zA-Z]|"_"){1}[a-zA-Z0-9]*       printf("correct \t--> %s\n", yytext);
-
+[[:space:]]                                 ;
+^[/]{2}(.*)                                 printf("comment \t--> %s\n", yytext);
+[\.|=|+|-|*|/]                              printf("operator\t--> %s\n", yytext);
+['|"](.*)['|"]                              printf("string  \t--> %s\n", yytext);
+[(]                                         printf("open    \t--> %s\n", yytext);
+[)]                                         printf("close   \t--> %s\n", yytext);
+([a-zA-Z]|"_"){1}("_"|[a-zA-Z0-9])*[a-zA-z] printf("correct \t--> %s\n", yytext);
+.                                           printf("error   \t--> %s\n", yytext);
 
 %%
 
@@ -17,6 +19,5 @@ int main(int argc, char *argv[]) {
     yyin = fopen(argv[1], "r");
     yylex();
     fclose(yyin);
-    printf("\n");
     return 0;
 }
