@@ -1,5 +1,5 @@
 
-valid_name              ([a-zA-Z]|"_"){1}("_"|[a-zA-Z0-9])*[a-zA-z]
+valid_name              ([a-zA-Z]|"_"|"$"){1}("_"|[a-zA-Z0-9])*[a-zA-z]
 operators               [\.|=|+|-|*|/]+
 string                  ['|"](.*)['|"]
 comment                 [/]{2}(.*)
